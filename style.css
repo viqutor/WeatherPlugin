@@ -3,16 +3,48 @@
     padding: 3%;
     border-radius: 10px;
     display: flex;
-    flex-direction:column;
+	flex-wrap: wrap;
+}
+
+.locationHeader{
+	display: flex;
+	flex-basis: 100%;
+	flex-flow: column;
+	justify-content: center;
+	
+}
+
+.weatherContainer{
+	display: flex;
+	flex-basis: 100%;
+	flex-wrap: wrap;
+	flex-flow: column;
 }
 
 #weatherHeader{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
-    font-weight: 600;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     justify-content:center;
-    width:100%;
+    flex-basis:50%;
+}
+
+#heading{
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-weight: 900;
+    font-size: 60px;
+	justify-content:center;
+	display:flex;
+	margin:0;
+}
+
+p {
+	align-content: center;
+	display: flex;
+	justify-content: center;
+	color: white;
 }
 
 #weatherTemp{
@@ -20,5 +52,5 @@
     font-weight: 400;
     font-size: 30px;
     justify-content:center;
-    width:100%;
+    flex-basis: 50%;
 }
