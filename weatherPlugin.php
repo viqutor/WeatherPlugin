@@ -6,45 +6,19 @@
 
  */
 
-$url = "https://api.openweathermap.org/data/2.5/weather?lat=47.5053&lon=111.3008&appid=24fcd672aebb7d5f43302c4059e48e19&units=imperial";
+$url = 'https://api.openweathermap.org/data/2.5/weather?lat=47.5053&lon=-111.3008&appid=24fcd672aebb7d5f43302c4059e48e19&units=imperial';
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
- 
-if ( ! class_exists( 'DOT_MyPluginInfo' ) )
-{
- 
-    class DOT_MyPluginInfo {
- 
-        /**
-         * Constructor
-         */
-        function __construct() {
- 
-            //Hook up to the init action
-            add_action( 'init', array( &$this, 'init_my_plugin_info' ) );
- 
-        }
- 
-        /**
-         * Runs when the plugin is initialized
-         */
-        function init_my_plugin_info() {
+function weatherShortcode(){
+    $weatherData = json_decode(file_get_contents($url), true); //Change JSON to PHP Variables
+    
+    echo "hello world";
+    print_r($url, true);
+    echo $weatherData['temp'];
+    //return $weatherData->{'main'};
+    return print_r($weatherData);
 
-            $weatherData = json_decode($url); //Change JSON to PHP Variables
+    }
 
-            
- 
-            // Register the shortcode [mpi slug='my-plugin-info' field='version']
-            add_shortcode( 'mpi', array( &$this, 'render_mpi' ) );
- 
-        }
- 
-        function render_mpi($atts) {
- 
-        }
- 
-    } // end class
- 
-    new DOT_MyPluginInfo();
-}
+add_shortcode('getWeather', 'weatherShortcode');
+
 ?>
